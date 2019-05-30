@@ -1,0 +1,12 @@
+{
+  "name": "bit-helper",
+  "version": "1.0.0",
+  "description": "Small library to store booleans and small integers compactly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "knokko",
+  "bugs": { "url" : "https://github.com/knokko/js-bit-helper/issues" },
+  "license": "MIT"
+}
