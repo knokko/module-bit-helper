@@ -1,5 +1,10 @@
+import BitOutput from './output';
+import BitInput from './input';
+
 const BOOLEANS = new Array(256);
 const POWERS = new Array(53);
+
+export { BitOutput, BitInput };
 
 export function toSignedByte(unsigned){
     if(unsigned > 127){
