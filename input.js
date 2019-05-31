@@ -92,6 +92,11 @@ export default class BitInput {
         return numberFromBooleans(this.readBooleans(size), bitCount, allowNegative);
     }
 
+    readVarUint() {
+        const bits = this.readNumber(6, false) + 1;
+        return this.readNumber(bits, false);
+    }
+
     readJavaString() {
         const length = this.readInt();
         if (length === -1) {

@@ -82,6 +82,17 @@ export default class BitOutput {
         this.writeBooleans(numberToBooleans(number, bitcount, allowNegative));
     }
 
+    writeVarUint(number) {
+        const bits = getRequiredBits(number);
+        if (bits > 0) {
+            this.writeNumber(bits - 1, 6, false);
+            this.writeNumber(value, bits, false);
+        } else {
+            this.writeNumber(0, 6, false);
+            this.writeBoolean(false);
+        }
+    }
+
     writeJavaString(string) {
         if (string === null || string === undefined) {//java doesn't have undefined, so we will make it just null
             this.writeInt(-1);
