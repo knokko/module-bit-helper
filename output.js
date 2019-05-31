@@ -175,7 +175,7 @@ export class ByteArrayBitOutput extends BitOutput {
         if(terminate){
             this.onTerminate = terminate;
         }
-    };
+    }
     
     terminate(){
         if (this.boolIndex !== 0){

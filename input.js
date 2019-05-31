@@ -18,11 +18,11 @@ export default class BitInput {
 
     readChar() {
         return makeChar(this.readByte(), this.readByte());
-    };
+    }
 
     readInt() {
         return makeInt(this.readByte(), this.readByte(), this.readByte(), this.readByte());
-    };
+    }
 
     readBooleans(amount) {
         const array = new Array(amount);
@@ -30,7 +30,7 @@ export default class BitInput {
             array[index] = this.readBoolean();
         }
         return array;
-    };
+    }
 
     readBytes(amount) {
         const array = new Int8Array(amount);
@@ -38,7 +38,7 @@ export default class BitInput {
             array[index] = this.readByte();
         }
         return array;
-    };
+    }
 
     readShorts(amount) {
         const array = new Int16Array(amount);
@@ -46,7 +46,7 @@ export default class BitInput {
             array[index] = this.readShort();
         }
         return array;
-    };
+    }
 
     readChars(amount) {
         const array = new Uint16Array(amount);
@@ -54,7 +54,7 @@ export default class BitInput {
             array[index] = this.readChar();
         }
         return array;
-    };
+    }
 
     readInts(amount) {
         const array = new Int32Array(amount);
@@ -62,27 +62,27 @@ export default class BitInput {
             array[index] = this.readInt();
         }
         return array;
-    };
+    }
 
     readBooleanArray() {
         return this.readBooleans(this.readInt());
-    };
+    }
 
     readByteArray() {
         return this.readBytes(this.readInt());
-    };
+    }
 
     readShortArray() {
         return this.readShorts(this.readInt());
-    };
+    }
 
     readCharArray() {
         return this.readChars(this.readInt());
-    };
+    }
 
     readIntArray() {
         return this.readInts(this.readInt());
-    };
+    }
 
     readNumber(bitCount, allowNegative) {
         let size = bitCount;
@@ -90,7 +90,7 @@ export default class BitInput {
             size++;
         }
         return numberFromBooleans(this.readBooleans(size), bitCount, allowNegative);
-    };
+    }
 
     readJavaString() {
         const length = this.readInt();
@@ -103,7 +103,7 @@ export default class BitInput {
             string += String.fromCharCode(this.readNumber(bitCount, false));
         }
         return string;
-    };
+    }
 
     readString() {
         const length1 = this.readByte() & 0xFF;
@@ -146,7 +146,7 @@ export default class BitInput {
         }
 
         return stringFromUint16Array(chars);
-    };
+    }
 }
 
 export class ByteArrayBitInput extends BitInput {
@@ -170,7 +170,7 @@ export class ByteArrayBitInput extends BitInput {
             return byteToBooleans(this.array[this.index++])[7];
         }
         return byteToBooleans(this.array[this.index])[this.boolIndex++];
-    };
+    }
 
     readByte() {
         if (this.boolIndex === 0) {
@@ -188,7 +188,7 @@ export class ByteArrayBitInput extends BitInput {
             bools[boolsIndex] = bools2[index++]
         }
         return booleansToByte(bools);
-    };
+    }
 }
 
 export class StringBitInput extends BitInput {
@@ -263,7 +263,7 @@ export class CharArrayBitInput extends BitInput {
         if(terminate){
             this.onTerminate = terminate;
         }
-    };
+    }
     
     terminate(){
         if (this.onTerminate){
