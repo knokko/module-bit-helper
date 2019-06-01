@@ -56,7 +56,7 @@ export function byteToBooleans(signed){
 
 export function booleansToByte(b1, b2, b3, b4, b5, b6, b7, b8){
     if(Array.isArray(b1)){
-        return BitHelper.booleansToByte(b1[0], b1[1], b1[2], b1[3], b1[4], b1[5], b1[6], b1[7]);
+        return booleansToByte(b1[0], b1[1], b1[2], b1[3], b1[4], b1[5], b1[6], b1[7]);
     }
     let signed = 64 * b1 + 32 * b2 + 16 * b3 + 8 * b4 + 4 * b5 + 2 * b6 + 1 * b7;
     if(!b8){
@@ -207,41 +207,41 @@ export function uint16ArrayFromString(string){
 }
 
 for(let unsigned = 0; unsigned < 256; unsigned++){
-	let signed = BitHelper.toSignedByte(unsigned);
-	BitHelper.BOOLEANS[unsigned] = [false, false, false, false, false, false, false, false];
+	let signed = toSignedByte(unsigned);
+	BOOLEANS[unsigned] = [false, false, false, false, false, false, false, false];
 	if(signed >= 0){
-		BitHelper.BOOLEANS[unsigned][7] = true;
+		BOOLEANS[unsigned][7] = true;
 	}
 	else {
 		signed = -signed;
 		signed--;
 	}
 	if(signed >= 64){
-		BitHelper.BOOLEANS[unsigned][0] = true;
+		BOOLEANS[unsigned][0] = true;
 		signed -= 64;
 	}
 	if(signed >= 32){
-		BitHelper.BOOLEANS[unsigned][1] = true;
+		BOOLEANS[unsigned][1] = true;
 		signed -= 32;
 	}
 	if(signed >= 16){
-		BitHelper.BOOLEANS[unsigned][2] = true;
+		BOOLEANS[unsigned][2] = true;
 		signed -= 16;
 	}
 	if(signed >= 8){
-		BitHelper.BOOLEANS[unsigned][3] = true;
+		BOOLEANS[unsigned][3] = true;
 		signed -= 8;
 	}
 	if(signed >= 4){
-		BitHelper.BOOLEANS[unsigned][4] = true;
+		BOOLEANS[unsigned][4] = true;
 		signed -= 4;
 	}
 	if(signed >= 2){
-		BitHelper.BOOLEANS[unsigned][5] = true;
+		BOOLEANS[unsigned][5] = true;
 		signed -= 2;
 	}
 	if(signed >= 1){
-		BitHelper.BOOLEANS[unsigned][6] = true;
+		BOOLEANS[unsigned][6] = true;
 	}
 }
 
@@ -249,8 +249,8 @@ for(let unsigned = 0; unsigned < 256; unsigned++){
 
 (function(){
 	let power = 1;
-	for(let index = 0; index < BitHelper.POWERS.length; index++){
-		BitHelper.POWERS[index] = power;
+	for(let index = 0; index < POWERS.length; index++){
+		POWERS[index] = power;
 		power *= 2;
 	}
 }());

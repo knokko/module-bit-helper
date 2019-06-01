@@ -294,7 +294,7 @@ export class StringBitOutput {
     }
     
     writeByte(byte){
-        const bools = BitHelper.byteToBooleans(byte);
+        const bools = byteToBooleans(byte);
         for(let index = 0; index < 8; index++){
             this.writeBoolean(bools[index]);//a custom writeByte method will barely improve performance anyway
         }
@@ -345,7 +345,7 @@ export class CharArrayBitOutput {
     }
     
     writeByte(){
-        const bools = BitHelper.byteToBooleans(byte);
+        const bools = byteToBooleans(byte);
         for(let index = 0; index < 8; index++){
             this.writeBoolean(bools[index]);//a custom writeByte method will barely improve performance anyway
         }
