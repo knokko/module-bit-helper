@@ -86,7 +86,7 @@ export default class BitOutput {
         const bits = getRequiredBits(number);
         if (bits > 0) {
             this.writeNumber(bits - 1, 6, false);
-            this.writeNumber(value, bits, false);
+            this.writeNumber(number, bits, false);
         } else {
             this.writeNumber(0, 6, false);
             this.writeBoolean(false);

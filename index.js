@@ -6,6 +6,14 @@ const POWERS = new Array(53);
 
 export { BitOutput, BitInput };
 
+function roundTo0(number){
+    if (number > 0){
+        return Math.floor(number);
+    } else {
+        return Math.ceil(number);
+    }
+}
+
 export function toSignedByte(unsigned){
     if(unsigned > 127){
         return unsigned - 256;
