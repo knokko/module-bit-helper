@@ -157,6 +157,7 @@ export default class BitInput {
 export class ByteArrayBitInput extends BitInput {
 
     constructor(array, startIndex, terminate) {
+        super();
         this.array = array;
         this.index = startIndex ? startIndex : 0;
         this.boolIndex = 0;
@@ -199,6 +200,7 @@ export class ByteArrayBitInput extends BitInput {
 export class StringBitInput extends BitInput {
 
     constructor(string, startIndex, terminate) {
+        super();
         this.string = string;
         this.index = startIndex || 0;
         this.boolIndex = 0;
@@ -262,6 +264,7 @@ export class StringBitInput extends BitInput {
 export class CharArrayBitInput extends BitInput {
 
     constructor(array, startIndex, terminate){
+        super();
         this.array = array;
         this.index = startIndex || 0;
         this.boolIndex = 0;

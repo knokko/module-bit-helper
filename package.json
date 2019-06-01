@@ -1,6 +1,6 @@
 {
   "name": "bit-helper",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Small library to store booleans and small integers compactly",
   "main": "index.js",
   "scripts": {

@@ -180,6 +180,7 @@ export default class BitOutput {
 export class ByteArrayBitOutput extends BitOutput {
 
     constructor(array, startIndex, terminate){
+        super();
         this.array = array ? array : new Int8Array(100);
         this.index = startIndex ? startIndex : 0;
         this.boolIndex = 0;
@@ -261,9 +262,10 @@ export class ByteArrayBitOutput extends BitOutput {
     }
 }
 
-export class StringBitOutput {
+export class StringBitOutput extends BitOutput {
 
     constructor(terminate){
+        super();
         this.string = '';
         this.boolIndex = 0;
         this.currentBools = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
@@ -301,9 +303,10 @@ export class StringBitOutput {
     }
 }
 
-export class CharArrayBitOutput {
+export class CharArrayBitOutput extends BitOutput {
 
     constructor(array, startIndex, terminate){
+        super();
         this.array = array || new Uint16Array(100);
         this.index = startIndex || 0;
         this.boolIndex = 0;
